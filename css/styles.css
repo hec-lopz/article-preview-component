@@ -17,11 +17,11 @@
   /* Box Values */
   --margin: 20px;
 }
-
+/* 
 html,
 body {
   box-sizing: border-box;
-}
+} */
 *,
 *:before,
 *:after {
@@ -48,46 +48,97 @@ body {
   color: var(--dark-blue);
 }
 .card__container {
-  height: 500px;
+  /* height: 500px; */
   margin: 0 var(--margin);
   background-color: white;
   border-radius: 10px;
+  display: grid;
+  grid-template-rows: 200px 2fr 50px;
 }
 .card__cover {
   width: 100%;
-  height: 40%;
+  /* height: 40%; */
   overflow: hidden;
   border-radius: inherit;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
 .card__cover img {
-  /* display: none; */
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 .card__description {
-  padding: 30px;
+  padding: 20px 30px;
 }
 .card__title {
   font-size: 1rem;
+  font-weight: var(--bold-weight);
   color: var(--very-dark-blue);
 }
 .card__summary {
   font-size: 0.8rem;
   line-height: calc(1em + 60%);
+  letter-spacing: 0.02rem;
 }
 .user {
   display: grid;
-  grid-template-columns: 50px 1fr 50px;
-  padding: 0 30px;
+  grid-template-columns: 45px 1fr 50px;
+  /* grid-template-rows: 50px; */
+  align-items: center;
+  justify-items: center;
+  gap: 20px;
+  /* min-height: 0; */
+  padding: 0 30px 20px;
 }
 .user span {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  /* justify-content: center; */
+  justify-content: center;
+  justify-self: flex-start;
+  font-weight: var(--bold-weight);
+  color: var(--very-dark-blue);
+  font-size: 0.85rem;
+  line-height: calc(0.8rem+ 70%);
+}
+.user time {
+  color: var(--gray-blue);
+  font-weight: var(--normal-weight);
+  font-size: 0.75rem;
+}
+.user__thumbnail {
+  flex-grow: 0;
+  width: 100%;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.user__thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.share-icon {
+  background-image: url("../assets/icons/icon-share.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 30px;
+  height: 30px;
+  background-color: var(--light-gray-blue);
+  border-radius: 50%;
+}
+.user--active {
+  background-color: var(--very-dark-blue);
+}
+.user.user--active .user__thumbnail img {
+  display: none;
+  content: "share";
+}
+.user.user--active .user__thumbnail::before {
+  content: "share";
+  display: inline-block;
+  width: 100%;
+  height: 100%;
 }
 
 .attribution {
