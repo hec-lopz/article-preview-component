@@ -1,0 +1,222 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap");
+
+:root {
+  /* Viewport sizes */
+  --mobile-width: 375px;
+  --desktop-width: 1440px;
+  /* Colors */
+  --very-dark-blue: hsl(217, 19%, 35%);
+  --dark-blue: hsl(214, 17%, 51%);
+  --gray-blue: hsl(212, 23%, 69%);
+  --light-gray-blue: hsl(210, 46%, 95%);
+  /* Fonts */
+  --main-font: "Manrope", sans-serif;
+  --normal-weight: 500;
+  --bold-weight: 700;
+
+  /* Box Values */
+  --margin: 20px;
+}
+
+html,
+body {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+html,
+body,
+figure,
+a {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  font-size: inherit;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--light-gray-blue);
+  font-family: var(--main-font);
+  font-size: 62.5%;
+  color: var(--dark-blue);
+}
+.card__container {
+  /* height: 500px; */
+  max-width: var(--mobile-width);
+  margin: 0 var(--margin);
+  background-color: white;
+  border-radius: 10px;
+  display: grid;
+  grid-template-rows: 200px 2fr auto;
+  overflow: hidden;
+}
+.card__cover {
+  width: 100%;
+  /* height: 40%; */
+  overflow: hidden;
+  border-radius: inherit;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.card__cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.card__description {
+  padding: 20px 30px;
+}
+.card__title {
+  font-size: 1rem;
+  font-weight: var(--bold-weight);
+  color: var(--very-dark-blue);
+}
+.card__summary {
+  font-size: 0.8rem;
+  line-height: calc(1em + 60%);
+  letter-spacing: 0.02rem;
+}
+.user {
+  display: grid;
+  grid-template-columns: 45px 1fr 50px;
+  /* grid-template-rows: 50px; */
+  height: 75px;
+  align-items: center;
+  justify-items: center;
+  gap: 20px;
+  /* min-height: 0; */
+  padding: 15px 30px;
+}
+.user span {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-self: flex-start;
+  font-weight: var(--bold-weight);
+  color: var(--very-dark-blue);
+  font-size: 0.85rem;
+  line-height: calc(0.8rem+ 70%);
+}
+.user time {
+  color: var(--gray-blue);
+  font-weight: var(--normal-weight);
+  font-size: 0.75rem;
+}
+
+.social-icons {
+  display: none;
+}
+.user__thumbnail {
+  flex-grow: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.user__thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.share-icon {
+  /* background-image: url("../assets/icons/icon-share.svg"); */
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background-color: var(--light-gray-blue);
+  border-radius: 50%;
+  cursor: pointer;
+}
+.share-icon:hover {
+  background-color: hsl(208.8, 28.1%, 82.5%);
+}
+
+.user--active {
+  background-color: var(--very-dark-blue);
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.user.user--active .user__thumbnail img {
+  display: none;
+  content: "share";
+}
+.user.user--active .user__thumbnail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: initial;
+}
+.user.user--active .user__thumbnail::before {
+  content: "share";
+  display: inline-block;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--gray-blue);
+  /* width: 100%;
+  height: 100%; */
+}
+
+.user.user--active span {
+  display: none;
+}
+.user.user--active .share-icon {
+  background-color: var(--dark-blue);
+}
+.user.user--active .share-icon path {
+  fill: white;
+}
+.user--active .social-icons {
+  align-self: center;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.user {
+  animation-duration: 250ms;
+  animation-timing-function: linear;
+}
+.user.user--active {
+  animation-name: move-in;
+  animation-duration: 250ms;
+  animation-timing-function: linear;
+}
+.move-out {
+  animation-name: moveOut;
+}
+@keyframes move-in {
+  0% {
+    margin-left: 100%;
+  }
+  100% {
+    margin-left: 0;
+  }
+}
+@keyframes moveOut {
+  0% {
+    margin-left: 0;
+  }
+  100% {
+    margin-left: 100%;
+  }
+}
+
+.attribution {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+}
