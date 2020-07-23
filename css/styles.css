@@ -2,8 +2,8 @@
 
 :root {
   /* Viewport sizes */
-  --mobile-width: 375px;
-  --desktop-width: 1440px;
+  --mobile-width: calc(375px - 40px);
+  --desktop-width: 670px;
   /* Colors */
   --very-dark-blue: hsl(217, 19%, 35%);
   --dark-blue: hsl(214, 17%, 51%);
@@ -40,6 +40,7 @@ a {
 body {
   display: flex;
   align-items: center;
+  justify-content: center;
   width: 100vw;
   height: 100vh;
   background-color: var(--light-gray-blue);
@@ -142,11 +143,20 @@ body {
   background-color: hsl(208.8, 28.1%, 82.5%);
 }
 
+.user-container {
+  position: relative;
+}
 .user--active {
   background-color: var(--very-dark-blue);
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
+  position: absolute;
+  left: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
 }
+
 .user.user--active .user__thumbnail img {
   display: none;
   content: "share";
@@ -190,27 +200,29 @@ body {
   animation-timing-function: linear;
 }
 .user.user--active {
-  animation-name: move-in;
+  /* animation-iteration-count: infinite; */
   animation-duration: 250ms;
   animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+.move-in {
+  animation-name: move-in;
 }
 .move-out {
-  animation-name: moveOut;
+  animation-name: move-out;
 }
 @keyframes move-in {
-  0% {
-    margin-left: 100%;
-  }
   100% {
-    margin-left: 0;
+    left: 0;
   }
 }
-@keyframes moveOut {
-  0% {
-    margin-left: 0;
+@keyframes move-out {
+  from {
+    left: 0;
   }
-  100% {
-    margin-left: 100%;
+  to {
+    left: 100%;
   }
 }
 
