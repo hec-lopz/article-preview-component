@@ -41,17 +41,19 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   width: 100vw;
   height: 100vh;
+  /* min-height: 335px; */
   background-color: var(--light-gray-blue);
   font-family: var(--main-font);
   font-size: 62.5%;
   color: var(--dark-blue);
 }
 .card__container {
-  /* height: 500px; */
+  flex-shrink: 0;
   max-width: var(--mobile-width);
-  margin: 0 var(--margin);
+  margin:var(--margin);
   background-color: white;
   border-radius: 10px;
   display: grid;
@@ -195,6 +197,15 @@ body {
   align-items: center;
 }
 
+.user.user--active .share-icon:hover  {
+  background-color: hsl(213.7, 19.1%, 57.8%);
+}
+
+.icon:hover svg path {
+  fill:hsl(213.7, 19.1%, 57.8%);
+}
+
+
 .user {
   animation-duration: 250ms;
   animation-timing-function: linear;
@@ -227,8 +238,6 @@ body {
 }
 
 .attribution {
-  position: absolute;
-  bottom: 10px;
-  left: 0;
-  right: 0;
+  /* margin-top: 20px; */
+  margin-bottom: 10px;
 }
