@@ -53,7 +53,7 @@ body {
 .card__container {
   flex-shrink: 0;
   max-width: var(--mobile-width);
-  margin:var(--margin);
+  margin: var(--margin);
   background-color: white;
   border-radius: 10px;
   display: grid;
@@ -156,7 +156,10 @@ body {
   left: 100%;
   top: 0;
   right: 0;
+  opacity: 0;
   bottom: 0;
+  pointer-events: none;
+  transition: left ease-in 250ms;
 }
 
 .user.user--active .user__thumbnail img {
@@ -197,33 +200,36 @@ body {
   align-items: center;
 }
 
-.user.user--active .share-icon:hover  {
+.user.user--active .share-icon:hover {
   background-color: hsl(213.7, 19.1%, 57.8%);
 }
 
 .icon:hover svg path {
-  fill:hsl(213.7, 19.1%, 57.8%);
+  fill: hsl(213.7, 19.1%, 57.8%);
 }
 
-
-.user {
+/* .user {
   animation-duration: 250ms;
   animation-timing-function: linear;
-}
+} */
 .user.user--active {
   /* animation-iteration-count: infinite; */
-  animation-duration: 250ms;
-  animation-timing-function: linear;
-  animation-fill-mode: forwards;
 }
 
 .move-in {
-  animation-name: move-in;
+  /* animation-name: move-in; */
+  left: 0;
+  opacity: 1;
 }
 .move-out {
-  animation-name: move-out;
+  /* animation-name: move-out; */
+  left: 100%;
+  /* opacity: 0; */
 }
 @keyframes move-in {
+  0% {
+    left: 100%;
+  }
   100% {
     left: 0;
   }
