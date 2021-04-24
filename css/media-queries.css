@@ -25,7 +25,11 @@
     /* padding: 0; */
     top: 0;
     opacity: 0;
-    display: none;
+    pointer-events: none;
+    /* display: none; */
+
+    transition-property: top, opacity;
+    transition-duration: 250ms;
   }
   .user--active::after {
     content: "";
@@ -51,13 +55,17 @@
     justify-content: space-between;
   }
   .move-in {
-    animation-name: move-in;
-    display: flex;
+    /* animation-name: move-in; */
+    top: -50px;
+    opacity: 1;
+    /* display: flex; */
   }
   .move-out {
-    animation-name: move-out;
+    /* animation-name: move-out; */
     /* opacity: 1; */
     /* display: flex; */
+    top: 0;
+    opacity: 0;
   }
 
   @keyframes move-in {
